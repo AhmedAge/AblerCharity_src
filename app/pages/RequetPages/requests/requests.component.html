@@ -1,0 +1,26 @@
+<div class="row">   
+    <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3 zoom" *ngFor="let item of menuInfo.childMenusInfo">
+        <div class="widget-box widget-color-blue" (click)="navigate(item.menuPah)">
+            <div class="widget-header">
+                <h5 class="widget-title bigger lighter">{{item.menuTitleEn}}</h5>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main text-center">
+                    <img src="{{item.Images}}" width="50%" alt="">
+                    <hr>
+                    <div class="price">
+                        <small>{{item.Description}}</small>
+                    </div>
+                </div>
+                <div>
+                    <a [routerLink]="[item.menuPah]" class="btn btn-block btn-primary ">
+                        <i class="ace-icon {{item.menuIcon}} bigger-110"></i>
+                        <span>{{item.menuTitleEn}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

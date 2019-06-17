@@ -1,0 +1,54 @@
+<div class="page-header">
+    <h1>
+        Roles & Menus
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Roles & Menus Assigned
+        </small>
+    </h1>
+</div>
+<form #editUser='ngForm' (ngSubmit)='onSubmit(editUser)'>
+    <div class="row">
+        <div class='col-lg-4'>
+            <div class="form-group">
+                <label for="role.roleId">Roles</label>
+                <select [ngModel]="role.roleId" name='role.roleId' class="form-control"
+                    (ngModelChange)="onChange($event)">
+                    <option *ngFor="let item of Roles" [value]="item.roleId">
+                        {{item.roleName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class='col-lg-4'>
+            <div class="widget-box">
+                <div class="widget-header">
+                    <h4 class="smaller">Menus assigned to Role</h4>
+
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <ng-container *ngIf="iSec_RoleMenu_Main.roleMenu.length > 1">
+                            <div class="checkbox" *ngFor="let item of iSec_RoleMenu_Main.roleMenu">
+                                <label>
+                                    <input name="form-field-checkbox" class="ace ace-checkbox-2"
+                                        [checked]="item.IsChecked" (change)="onChkChange($event,item)" type="checkbox">
+                                    <span class="lbl">&nbsp; {{item.menuTitleEn}} , {{item.menuTitleAr}} </span>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class='row'>
+                                <input type="submit" class="btn btn-info btn-sm tooltip-info pull-right"
+                                    style="margin-right: 10px" value="Save">
+                            </div>
+                        </ng-container>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

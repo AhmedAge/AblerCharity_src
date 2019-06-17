@@ -1,0 +1,70 @@
+<form #editProduct='ngForm' (ngSubmit)='onSubmit(editProduct)'>
+    <div class="row">
+        <div class='col-lg-6'>
+            <input type="hidden" name='Product.guid' value="Product.guid" />
+            <div class="form-group">
+                <label for="ProductName">Product Name</label>
+                <input type="hidden" name='Product.ProductID' autofocus [(ngModel)]="Product.ProductID" />
+                <input type="text" class="form-control" required name='Product.ProductName'
+                    [(ngModel)]="Product.ProductName" />
+            </div>
+            <div class="form-group">
+                <label for="SupplierID">SupplierID</label>
+                <input type="text" class="form-control" required name='Product.SupplierID'
+                    [(ngModel)]="Product.SupplierID" />
+            </div>
+            <div class="form-group">
+                <label for="CategoryID">CategoryID</label>
+                <input type="text" class="form-control" required name='Product.CategoryID'
+                    [(ngModel)]="Product.CategoryID" />
+            </div>
+            <div class="form-group">
+                <label for="QuantityPerUnit">QuantityPerUnit</label>
+                <input type="text" class="form-control" required name='Product.QuantityPerUnit'
+                    [(ngModel)]="Product.QuantityPerUnit" />
+            </div>
+
+        </div>
+        <div class='col-lg-6'>
+
+            <div class="form-group">
+                <label for="UnitPrice">UnitPrice</label>
+                <input type="number" class="form-control" required name='Product.UnitPrice'
+                    [(ngModel)]="Product.UnitPrice" />
+            </div>
+            <div class="form-group">
+                <label for="UnitsInStock">UnitsInStock</label>
+                <input type="number" class="form-control" required name='Product.UnitsInStock'
+                    [(ngModel)]="Product.UnitsInStock" />
+            </div>
+            <div class="form-group">
+                <label for="ReorderLevel">ReorderLevel</label>
+                <input type="number" class="form-control" required name='Product.ReorderLevel'
+                    [(ngModel)]="Product.ReorderLevel" />
+            </div>
+            <div class="form-group">
+                <label for="UnitsOnOrder">UnitsOnOrder</label>
+                <input type="number" class="form-control" required name='Product.UnitsOnOrder'
+                    [(ngModel)]="Product.UnitsOnOrder" />
+            </div>
+            <div class="form-group">
+                <label for="UnitsInStock">Discontinued</label> &nbsp;
+                <input type="checkbox" required name='Product.Discontinued' [(ngModel)]="Product.Discontinued" />
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" [disabled]="!editProduct.form.valid" class="btn btn-success"><i class="fa fa-save"></i>
+            Save</button> &nbsp;
+        <a [routerLink]="[ '/home/products']" class="btn btn-default"><i class="fa fa-angle-double-left"></i>
+            Back</a>
+    </div>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+        Please fill all required fields
+    </div>
+</form>

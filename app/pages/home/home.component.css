@@ -1,0 +1,15 @@
+.sidebar+.main-content {
+    margin-left: 190px;
+}
+
+.sidebar.menu-min+.main-content {
+    margin-left: 43px;
+}
+
+.sidebar~.footer .footer-inner {
+    left: 190px;
+}
+
+.sidebar.menu-min~.footer .footer-inner {
+    left: 43px;
+}
