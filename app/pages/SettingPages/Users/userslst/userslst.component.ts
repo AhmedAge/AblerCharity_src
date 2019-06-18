@@ -33,6 +33,7 @@ export class UserslstComponent implements OnInit {
       this.spinner.show();
 
       this.dataService.GetUsers().subscribe((res: ISec_Users[]) => {
+        
         if (res == null) {
           this.spinner.hide();
           this.authService.logout();

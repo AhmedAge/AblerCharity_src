@@ -40,11 +40,11 @@ export class LoginComponent implements OnInit {
 
           this.error = false;
 
-          // debugger
+          // 
           this.spinner.show();
 
           this.authGuard.DrawSideMenu().subscribe((res: MenusInfo) => {
-            debugger
+            
             localStorage.setItem("MenusInfo", JSON.stringify(res));
             this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
 

@@ -34,7 +34,7 @@ export class RequestsComponent implements OnInit {
       this.propagteDrawMenu.emit();
     } else {
       this.authGuard.DrawSideMenu().subscribe((res: MenusInfo) => {
-        debugger
+        
         localStorage.setItem("MenusInfo", JSON.stringify(res));
         this.menuInfoAll = JSON.parse(localStorage.getItem("MenusInfo"));
 

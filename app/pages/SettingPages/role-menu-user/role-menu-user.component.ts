@@ -135,7 +135,7 @@ export class RoleMenuUserComponent implements OnInit {
     console.log(loginForm.value);
     if (loginForm.valid) {
       this.spinner.show();
-      debugger
+      
       this.dataService.SaveRoleMenusUsers(this.iSec_RoleMenu_Main).subscribe((res:any) => {
 
         if (res === null ||  res == -10) {

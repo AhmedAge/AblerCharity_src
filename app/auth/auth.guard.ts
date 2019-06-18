@@ -52,7 +52,7 @@ export class AuthGuard implements CanActivate {
 
   DrawSideMenu() {
     var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token')).set('email', localStorage.getItem('email'));
-    debugger
+    
     return this.httpClient.get(this.dataService.url + 'DrawMenu/GetString/' + localStorage.getItem("email").split('@')[0],
       { headers: headers }
     );

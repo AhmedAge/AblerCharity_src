@@ -31,19 +31,19 @@ const routes: Routes = [
                 path: 'requests/products', component: ProductsComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'requests/products/:id', component: EditproductComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products/newproduct', component: NewproductComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'requests/products/newproduct', component: NewproductComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products/:id', component: EditproductComponent//,    canActivate: [AuthGuard]
             },
             {
                 path: 'settings/users', component: UserslstComponent
             },
             {
-                path: 'settings/users/:id', component: EditusersComponent
+                path: 'settings/users/newuser', component: NewuserComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'settings/users/newuser', component: NewuserComponent//,    canActivate: [AuthGuard]
+                path: 'settings/users/:id', component: EditusersComponent
             },
             {
                 path: 'settings/rolemenu', component: RoleMenusComponent//,    canActivate: [AuthGuard]

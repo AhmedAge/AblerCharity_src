@@ -128,6 +128,7 @@ export class DataService {
     }
 
     GetUsers() {
+        
         var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token')).set('email', localStorage.getItem('email'));
 
         return this.httpClient.get(this.url + 'Users',
@@ -135,6 +136,7 @@ export class DataService {
         );
     }
     GetUsersId(id: number) {
+        
         var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token')).set('email', localStorage.getItem('email'));
 
 
@@ -144,6 +146,7 @@ export class DataService {
     }
 
     SaveUsers(user: ISec_Users) {
+        
         var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token'))
             .set('email', localStorage.getItem('email'))
             .set('guid', user.guid);
@@ -173,6 +176,7 @@ export class DataService {
     }
 
     SaveNewUsers(user: ISec_Users) {
+        
         var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token'))
             .set('email', localStorage.getItem('email'))
             .set('guid', user.guid);
@@ -242,7 +246,7 @@ export class DataService {
         var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token'))
             .set('email', localStorage.getItem('email'))
             .set('guid', user.guid);
-          debugger
+          
         return this.httpClient.post(this.url + 'RoleMenuUser/', user,
             { headers: headers }
         );

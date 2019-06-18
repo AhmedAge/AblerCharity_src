@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthGuard } from 'src/app/Auth/auth.guard';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataService } from 'src/app/Data/data.service';
 import { MenusInfo } from 'src/app/Interfaces/MenusInfo';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
     else {
       if (localStorage.getItem("MenusInfo") == undefined) {
         this.authGuard.DrawSideMenu().subscribe((res: MenusInfo) => {
-          debugger
+          
           localStorage.setItem("MenusInfo", JSON.stringify(res));
           this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
         
@@ -43,13 +44,21 @@ export class HomeComponent implements OnInit {
   }
 
   onActivate() {
+    
     this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
     this.menuInfo[0].UserImage = this.dataService.url.replace("api", '') + this.menuInfo[0].UserImage.toString();
-    this.BreadcrumbPath();
+    this.emitEventToChild();
   }
+ 
+  private eventsSubject: Subject<string> = new Subject<string>();
+
+emitEventToChild() {
+  this.eventsSubject.next(this.router.url)
+}
 
   
   BreadcrumbPath(){
+   
     return this.router.url;
   }
 

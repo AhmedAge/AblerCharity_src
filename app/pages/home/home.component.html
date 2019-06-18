@@ -369,7 +369,7 @@
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
 
-                <app-breadcrumb [path]="BreadcrumbPath()"></app-breadcrumb>
+                <app-breadcrumb [events]="eventsSubject.asObservable()"></app-breadcrumb>
                 <!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">

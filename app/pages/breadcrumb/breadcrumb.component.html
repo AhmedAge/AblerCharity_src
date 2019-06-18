@@ -1,7 +1,7 @@
 <ul class="breadcrumb">
-    <li>
+    <li *ngFor="let item of datapath">
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Home</a>
+        <a  routerLink="[{{item}}]">{{item}}</a>
     </li>
 
     <li>

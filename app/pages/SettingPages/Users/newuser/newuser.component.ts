@@ -65,6 +65,7 @@ export class NewuserComponent implements OnInit {
         this.spinner.hide();
       });
       this.dataService.GetGU().subscribe((res: string) => {
+        
         this.user.guid = res;
       }, (error: any) => {
         this.spinner.hide();
@@ -121,7 +122,7 @@ export class NewuserComponent implements OnInit {
 
 
       this.dataService.SaveNewUsers(this.user).subscribe(res => {
-        debugger;
+        ;
         if (res == -10) {
           this.error = true;
           this.authService.logout();
@@ -132,7 +133,7 @@ export class NewuserComponent implements OnInit {
           if (this.authService.loggedIn() === true) {
 
             this.error = false;
-            this.router.navigate(['/home/users']);
+            this.router.navigate(['/home/settings/users']);
           }
         } else {
           this.error = true;
