@@ -1,72 +1,64 @@
 <h3>Edit User [{{user.FullName}}]</h3>
 <form #editUser='ngForm' (ngSubmit)='onSubmit(editUser)'>
-  <div class="row">
-      <div class='col-lg-6'>
-          <input type="hidden" name='user.guid' value="user.guid" />
-          <!-- <div class="form-group">
+    <div class="row">
+        <div class='col-lg-6'>
+            <input type="hidden" name='user.guid' value="user.guid" />
+            <!-- <div class="form-group">
               <label for="ProductName">user Name</label>
               <input type="hidden" name='user.userId' autofocus [(ngModel)]="user.userId" />
               <input type="text" class="form-control" required name='user.UserName'
                   [(ngModel)]="user.UserName" />
           </div> -->
-          <div class="form-group">
+            <div class="form-group">
                 <label for="FullName">Full Name</label>
-                <input type="text" class="form-control" required name='user.FullName'
-                    [(ngModel)]="user.FullName" />
+                <input type="text" class="form-control" required name='user.FullName' [(ngModel)]="user.FullName" />
             </div>
-          <div class="form-group">
-              <label for="roleId">roleId</label>
-              <select [ngModel]="user.roleId" name='user.roleId' class="form-control"
-              (ngModelChange)="onChangeRole($event)">
+            <div class="form-group">
+                <label for="roleId">roleId</label>
+                <select [ngModel]="user.roleId" name='user.roleId' class="form-control" (ngModelChange)="onChangeRole($event)">
               <option *ngFor="let item of Roles" [value]="item.roleId">
                   {{item.roleName}}
               </option>
           </select>
-          </div>
-          <div class="form-group">
-              <label for="mobile">mobile</label>
-              <input type="text" class="form-control" required name='user.mobile'
-                  [(ngModel)]="user.mobile" />
-          </div>
-          <div class="form-group">
-              <label for="email">email</label>
-              <input type="text" class="form-control" required name='user.email'
-                  [(ngModel)]="user.email" />
-          </div>
-          <div class="form-group">
+            </div>
+            <div class="form-group">
+                <label for="mobile">mobile</label>
+                <input type="text" class="form-control" required name='user.mobile' [(ngModel)]="user.mobile" />
+            </div>
+            <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" class="form-control" required name='user.email' [(ngModel)]="user.email" />
+            </div>
+            <div class="form-group">
                 <label for="Department">Department</label>
-                <select [ngModel]="user.Department" name='user.Department' class="form-control"
-                    (ngModelChange)="onChange($event)">
+                <select [ngModel]="user.Department" name='user.Department' class="form-control" (ngModelChange)="onChange($event)">
                     <option *ngFor="let item of Departments" [value]="item.deptId">
                         {{item.DeptName}}
                     </option>
                 </select>
                 <!-- <input type="text" class="form-control"  required name='user.Department' [(ngModel)]="user.Department" /> -->
             </div>
-          <!-- <div class="form-group">
+            <!-- <div class="form-group">
             <label for="Department">Department</label>  
             <input type="text" class="form-control"  required name='user.Department' [(ngModel)]="user.Department" />
         </div> -->
 
-      </div>
-      <div class='col-lg-6'>
+        </div>
+        <div class='col-lg-6'>
 
-          <div class="form-group">
-              <label for="address">address</label>
-              <input type="text" class="form-control" required name='user.address'
-                  [(ngModel)]="user.address" />
-          </div>
-          <div class="form-group">
-              <label for="tel">tel</label>
-              <input type="text" class="form-control" required name='user.tel'
-                  [(ngModel)]="user.tel" />
-          </div>
-         
-          <div class="form-group">
+            <div class="form-group">
+                <label for="address">address</label>
+                <input type="text" class="form-control" required name='user.address' [(ngModel)]="user.address" />
+            </div>
+            <div class="form-group">
+                <label for="tel">tel</label>
+                <input type="text" class="form-control" required name='user.tel' [(ngModel)]="user.tel" />
+            </div>
+
+            <div class="form-group">
                 <div class='row'>
-                    <div class='col-lg-6'> 
-                        <input type="file" name="file" class="form-control" id="file"
-                            (change)="onFileChanged($event)" />
+                    <div class='col-lg-6'>
+                        <input type="file" name="file" class="form-control" id="file" (change)="onFileChanged($event)" />
 
                     </div>
                     <div class='col-lg-6'>
@@ -80,18 +72,18 @@
                 <img [src]="imagesrc" width="150px" alt="">
             </div>
 
-      </div>
+        </div>
 
-  </div>
+    </div>
 
 
-  <div class="form-group">
-      <button type="submit" [disabled]="!editUser.form.valid" class="btn btn-success"><i class="fa fa-save"></i>
+    <div class="form-group">
+        <button type="submit" [disabled]="!editUser.form.valid" class="btn btn-success"><i class="fa fa-save"></i>
           Save</button> &nbsp;
-      <a [routerLink]="[ '/home/users']" class="btn btn-default"><i class="fa fa-angle-double-left"></i>
+        <a [routerLink]="['/home/settings/users']" class="btn btn-default"><i class="fa fa-angle-double-left"></i>
           Back</a>
-  </div>
-  <div *ngIf="error" class="alert alert-danger" role="alert">
-      Please fill all required fields
-  </div>
+    </div>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+        Please fill all required fields
+    </div>
 </form>

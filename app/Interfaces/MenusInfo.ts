@@ -11,5 +11,8 @@ export interface MenusInfo {
     MenuOrder: number;
     Images: string;
     Description: string;
+    color:string;
+    UserName:string;
+    UserImage:string;
     childMenusInfo:ISec_Menu[];
 }

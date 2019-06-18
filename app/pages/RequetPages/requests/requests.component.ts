@@ -12,8 +12,8 @@ import { AuthGuard } from 'src/app/Auth/auth.guard';
 export class RequestsComponent implements OnInit {
 
   constructor(private router: Router, private spinner: NgxSpinnerService, private authGuard: AuthGuard) {
-    this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
-    this.propagteDrawMenu.emit();
+   // this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
+  // this.propagteDrawMenu.emit();
 
   }
 

@@ -25,31 +25,31 @@ const routes: Routes = [
                 path: 'requests', component: RequestsComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'categories', component: CategoriesComponent//,    canActivate: [AuthGuard]
+                path: 'requests/categories', component: CategoriesComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'products', component: ProductsComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products', component: ProductsComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'products/:id', component: EditproductComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products/:id', component: EditproductComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'newproduct', component: NewproductComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products/newproduct', component: NewproductComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'users', component: UserslstComponent
+                path: 'settings/users', component: UserslstComponent
             },
             {
-                path: 'users/:id', component: EditusersComponent
+                path: 'settings/users/:id', component: EditusersComponent
             },
             {
-                path: 'newuser', component: NewuserComponent//,    canActivate: [AuthGuard]
+                path: 'settings/users/newuser', component: NewuserComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'rolemenu', component: RoleMenusComponent//,    canActivate: [AuthGuard]
+                path: 'settings/rolemenu', component: RoleMenusComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'rolemenuuser', component: RoleMenuUserComponent//,    canActivate: [AuthGuard]
+                path: 'settings/rolemenuuser', component: RoleMenuUserComponent//,    canActivate: [AuthGuard]
             }
         ]
     },

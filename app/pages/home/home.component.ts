@@ -26,11 +26,14 @@ export class HomeComponent implements OnInit {
           debugger
           localStorage.setItem("MenusInfo", JSON.stringify(res));
           this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
+        
+          this.menuInfo[0].UserImage = this.dataService.url.replace("api", '') + this.menuInfo[0].UserImage.toString();
         }, (error: any) => {
 
         });
       } else {
         this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
+        this.menuInfo[0].UserImage = this.dataService.url.replace("api", '') + this.menuInfo[0].UserImage.toString();
     
       }
       this.spinner.hide();
@@ -40,8 +43,14 @@ export class HomeComponent implements OnInit {
   }
 
   onActivate() {
-
     this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
+    this.menuInfo[0].UserImage = this.dataService.url.replace("api", '') + this.menuInfo[0].UserImage.toString();
+    this.BreadcrumbPath();
+  }
+
+  
+  BreadcrumbPath(){
+    return this.router.url;
   }
 
 
