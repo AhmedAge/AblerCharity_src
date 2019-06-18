@@ -10,7 +10,6 @@ import { MenusInfo } from 'src/app/Interfaces/MenusInfo';
 export class BreadcrumbComponent implements OnInit {
 
   @Input()
-  path: string;
   pages: string[];
 
   private eventsSubscription: any
@@ -29,13 +28,43 @@ export class BreadcrumbComponent implements OnInit {
     this.eventsSubscription.unsubscribe()
   }
 
+  breadCrumb: IBreadCrumb[] = [{ name: '', path: '' }];
   doSomething(res) {
     //this.path += "asd";
-    this.path = res;
+    //this.path = res;
     console.log("doSomething : " + res);
     this.pages = res.split('/');
     this.pages.splice(0, 1);
-     
-  } 
-  
+    this.breadCrumb = [{ name: '', path: '' }];
+    try {
+      debugger
+      var obj: IBreadCrumb = { path: '', name: '' };
+      // obj.name = this.pages[0].toUpperCase();
+      // obj.path = "/" + this.pages[0];
+      // this.breadCrumb.push(obj);
+
+      var obj1: IBreadCrumb = { path: '', name: '' };
+      obj1.name = this.pages[1].toUpperCase();
+      obj1.path = "/" + this.pages[0] + "/" + this.pages[1];
+      this.breadCrumb.push(obj1);
+
+      var obj2: IBreadCrumb = { path: '', name: '' };
+      obj2.name = this.pages[2].toUpperCase();
+      obj2.path = "/" + this.pages[0] + "/" + this.pages[1] + "/" + this.pages[2];
+      this.breadCrumb.push(obj2);
+
+      var obj3: IBreadCrumb = { path: '', name: '' };
+      obj3.name = this.pages[3].toUpperCase();
+      obj3.path = "/" + this.pages[0] + "/" + this.pages[1] + "/" + this.pages[2] + "/" + this.pages[3];
+      this.breadCrumb.push(obj3);
+
+    } catch (err) {
+
+    }
+  }
+
+}
+export interface IBreadCrumb {
+  path: string;
+  name: string;
 }

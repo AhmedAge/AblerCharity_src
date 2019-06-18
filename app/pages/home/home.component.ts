@@ -16,18 +16,17 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private authGuard: AuthGuard,
     private spinner: NgxSpinnerService, private dataService: DataService) { }
 
-  ngOnInit() {
-
+  ngOnInit() { 
     if (this.authGuard.loggedIn() !== true) {
       this.router.navigate(['login']);
     }
     else {
       if (localStorage.getItem("MenusInfo") == undefined) {
         this.authGuard.DrawSideMenu().subscribe((res: MenusInfo) => {
-          
+
           localStorage.setItem("MenusInfo", JSON.stringify(res));
           this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
-        
+
           this.menuInfo[0].UserImage = this.dataService.url.replace("api", '') + this.menuInfo[0].UserImage.toString();
         }, (error: any) => {
 
@@ -35,30 +34,26 @@ export class HomeComponent implements OnInit {
       } else {
         this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
         this.menuInfo[0].UserImage = this.dataService.url.replace("api", '') + this.menuInfo[0].UserImage.toString();
-    
+
       }
       this.spinner.hide();
-
-
     }
   }
 
-  onActivate() {
-    
+  onActivate() { 
     this.menuInfo = JSON.parse(localStorage.getItem("MenusInfo"));
     this.menuInfo[0].UserImage = this.dataService.url.replace("api", '') + this.menuInfo[0].UserImage.toString();
     this.emitEventToChild();
   }
- 
+
   private eventsSubject: Subject<string> = new Subject<string>();
 
-emitEventToChild() {
-  this.eventsSubject.next(this.router.url)
-}
+  emitEventToChild() {
+    this.eventsSubject.next(this.router.url)
+  }
 
-  
-  BreadcrumbPath(){
-   
+  anotherPage: boolean;
+  BreadcrumbPath() {
     return this.router.url;
   }
 

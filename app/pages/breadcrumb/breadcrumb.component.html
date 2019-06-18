@@ -1,11 +1,11 @@
 <ul class="breadcrumb">
-    <li *ngFor="let item of datapath">
-        <i class="ace-icon fa fa-home home-icon"></i>
-        <a  routerLink="[{{item}}]">{{item}}</a>
-    </li>
+   
+    <li *ngFor="let item of breadCrumb; let i = index">
+        <i *ngIf="i == 0" class="ace-icon fa fa-home home-icon"></i>
+        <span *ngIf="i == 0" >HOME</span>
+        
+        <a *ngIf="i >= 1" [routerLink]="[item.path]">{{item.name}}</a>
+        
 
-    <li>
-        <a href="#">Other Pages</a>
     </li>
-    <li class="active">{{path}}</li>
 </ul>
