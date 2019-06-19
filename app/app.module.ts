@@ -21,6 +21,7 @@ import { UserslstComponent } from './pages/SettingPages/Users/userslst/userslst.
 import { RoleMenusComponent } from './pages/SettingPages/role-menus/role-menus.component';
 import { RoleMenuUserComponent } from './pages/SettingPages/role-menu-user/role-menu-user.component';
 import { BreadcrumbComponent } from './pages/breadcrumb/breadcrumb.component';
+import { MakeRequestComponent } from './pages/RequetPages/make-request/make-request.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { BreadcrumbComponent } from './pages/breadcrumb/breadcrumb.component';
     EditproductComponent,
     NewproductComponent, 
     NewuserComponent, 
-    EditusersComponent, UserslstComponent, RoleMenusComponent, RoleMenuUserComponent, BreadcrumbComponent
+    EditusersComponent, UserslstComponent, RoleMenusComponent, RoleMenuUserComponent, BreadcrumbComponent, MakeRequestComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { EditusersComponent } from './pages/SettingPages/Users/editusers/edituse
 import { UserslstComponent } from './pages/SettingPages/Users/userslst/userslst.component';
 import { RoleMenusComponent } from './pages/SettingPages/role-menus/role-menus.component';
 import { RoleMenuUserComponent } from './pages/SettingPages/role-menu-user/role-menu-user.component';
+import { MakeRequestComponent } from './pages/RequetPages/make-request/make-request.component';
 
 const routes: Routes = [
     {
@@ -23,6 +24,9 @@ const routes: Routes = [
             },
             {
                 path: 'requests', component: RequestsComponent//,    canActivate: [AuthGuard]
+            },
+            {
+                path: 'requests/makerequest', component: MakeRequestComponent//,    canActivate: [AuthGuard]
             },
             {
                 path: 'requests/categories', component: CategoriesComponent//,    canActivate: [AuthGuard]

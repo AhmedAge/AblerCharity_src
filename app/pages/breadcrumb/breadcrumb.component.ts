@@ -29,20 +29,14 @@ export class BreadcrumbComponent implements OnInit {
   }
 
   breadCrumb: IBreadCrumb[] = [{ name: '', path: '' }];
-  doSomething(res) {
-    //this.path += "asd";
-    //this.path = res;
-    console.log("doSomething : " + res);
+  doSomething(res) { 
     this.pages = res.split('/');
     this.pages.splice(0, 1);
     this.breadCrumb = [{ name: '', path: '' }];
     try {
       debugger
       var obj: IBreadCrumb = { path: '', name: '' };
-      // obj.name = this.pages[0].toUpperCase();
-      // obj.path = "/" + this.pages[0];
-      // this.breadCrumb.push(obj);
-
+     
       var obj1: IBreadCrumb = { path: '', name: '' };
       obj1.name = this.pages[1].toUpperCase();
       obj1.path = "/" + this.pages[0] + "/" + this.pages[1];
