@@ -65,7 +65,7 @@ export class EditproductComponent implements OnInit {
           if (this.authService.loggedIn() === true) {
 
             this.error = false;
-            this.router.navigate(['/home/products']);
+            this.router.navigate(['/home/requests/products']);
           }
         } else {
           this.error = true;
