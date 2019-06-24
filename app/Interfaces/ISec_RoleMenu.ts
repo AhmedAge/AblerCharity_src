@@ -5,5 +5,6 @@ export interface ISec_RoleMenu {
     roleMenuId: number
     roleId: number
     menuId: number
-    startupPage_menuId: boolean
+    startupPage_menuId: boolean,
+    parentmenuId:number
 }

@@ -7,13 +7,13 @@
         </small>
     </h1>
 </div>
+
 <form #editUser='ngForm' (ngSubmit)='onSubmit(editUser)'>
     <div class="row">
-        <div class='col-lg-4'>
+        <div class='col-lg-6'>
             <div class="form-group">
                 <label for="role.roleId">Roles</label>
-                <select [ngModel]="role.roleId" name='role.roleId' class="form-control"
-                    (ngModelChange)="onChange($event)">
+                <select [ngModel]="role.roleId" name='role.roleId' class="form-control" (ngModelChange)="onChange($event)">
                     <option *ngFor="let item of Roles" [value]="item.roleId">
                         {{item.roleName}}
                     </option>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="row">
-        <div class='col-lg-4'>
+        <div class='col-lg-6'>
             <div class="widget-box">
                 <div class="widget-header">
                     <h4 class="smaller">Menus assigned to Role</h4>
@@ -31,17 +31,54 @@
                 <div class="widget-body">
                     <div class="widget-main">
                         <ng-container *ngIf="iSec_RoleMenu_Main.roleMenu.length > 1">
-                            <div class="checkbox" *ngFor="let item of iSec_RoleMenu_Main.roleMenu">
-                                <label>
-                                    <input name="form-field-checkbox" class="ace ace-checkbox-2"
-                                        [checked]="item.IsChecked" (change)="onChkChange($event,item)" type="checkbox">
-                                    <span class="lbl">&nbsp; {{item.menuTitleEn}} , {{item.menuTitleAr}} </span>
-                                </label>
-                            </div>
+                            <table class="table table-striped table-bordered table-hover display compact">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Select
+                                        </th>
+                                        <th>
+                                            Menu ID
+                                        </th>
+                                        <th>
+                                            Parent Menu ID
+                                        </th>
+                                        <th>
+                                            Menu Name English
+                                        </th>
+                                        <th>
+                                            Menu Name Arabic
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of iSec_RoleMenu_Main.roleMenu">
+                                        <td>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input name="form-field-checkbox" class="ace ace-checkbox-2"
+                                                        [checked]="item.IsChecked" (change)="onChkChange($event,item)"
+                                                        type="checkbox">
+                                                    <span class="lbl"> &nbsp; </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td style="font-size: 16px;"> {{item.menuId}} </td>
+                                        <td style="font-size: 16px;"> {{item.parentmenuId}} </td>
+
+                                        <td style="font-size: 16px;"> {{item.menuTitleEn}} </td>
+                                        <td style="font-size: 16px;"> {{item.menuTitleAr}} </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+
                             <hr>
                             <div class='row'>
-                                <input type="submit" class="btn btn-info btn-sm tooltip-info pull-right"
-                                    style="margin-right: 10px" value="Save">
+                                <input type="submit" class="btn btn-info btn-sm tooltip-info pull-right" style="margin-right: 10px" value="Save">
                             </div>
                         </ng-container>
                     </div>

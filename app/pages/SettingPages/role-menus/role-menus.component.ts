@@ -29,7 +29,8 @@ export class RoleMenusComponent implements OnInit {
       menuTitleEn: '',
       roleId: 0,
       roleMenuId: 0,
-      startupPage_menuId: false
+      startupPage_menuId: false,
+     parentmenuId:0
     }]
   };
 

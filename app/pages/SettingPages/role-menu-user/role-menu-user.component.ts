@@ -49,7 +49,9 @@ export class RoleMenuUserComponent implements OnInit {
       menuTitleEn: '',
       roleId: 0,
       roleMenuId: 0,
-      startupPage_menuId: false
+      startupPage_menuId: false,
+      parentmenuId:0
+    
     }]
   }; 
   constructor(private router: Router, private route: ActivatedRoute,
