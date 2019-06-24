@@ -41,6 +41,11 @@ export class NewproductComponent implements OnInit {
       this.IsloggedIn = true;
 
       this.dataService.GetGU().subscribe((res:string)=>{
+        if (res == null) {
+          this.spinner.hide();
+          this.authService.logout();
+          this.router.navigate(['login']);
+      }
       
         this.Product.guid = res;
       });
