@@ -34,7 +34,7 @@ export class BreadcrumbComponent implements OnInit {
     this.pages.splice(0, 1);
     this.breadCrumb = [{ name: '', path: '' }];
     try {
-      debugger
+      
       var obj: IBreadCrumb = { path: '', name: '' };
      
       var obj1: IBreadCrumb = { path: '', name: '' };

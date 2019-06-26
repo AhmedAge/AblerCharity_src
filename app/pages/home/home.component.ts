@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   private eventsSubject: Subject<string> = new Subject<string>();
 
   emitEventToChild() {
-    debugger
+    
     this.eventsSubject.next(this.router.url)
   }
 

@@ -57,7 +57,7 @@ export class NewuserComponent implements OnInit {
     if (this.authService.loggedIn()) {
       this.IsloggedIn = true;
       this.spinner.show();
-debugger
+
       this.dataService.GetDepartments().subscribe((res: IDepartments[]) => {
         this.Departments = res;
 
@@ -75,7 +75,7 @@ debugger
       this.spinner.show();
 
       this.dataService.GetRoles().subscribe((res: ISec_Roles[]) => {
-       debugger
+       
         if (res === null) {
           this.spinner.hide();
           this.authService.logout();

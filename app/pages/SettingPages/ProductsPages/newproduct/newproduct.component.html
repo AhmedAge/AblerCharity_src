@@ -6,50 +6,76 @@
         </a>
     </span>
 </h3>
-<form #editProduct='ngForm' (ngSubmit)='onSubmit(editProduct)'>
+<form [formGroup]="registerForm" (ngSubmit)='onSubmit()'>
     <div class="row">
         <div class='col-lg-6'>
-            <input type="hidden" name='Product.guid' value="Product.guid" />
-            <div class="form-group">
-                <label for="ProductName">Product Name</label>
-                <input type="hidden" name='Product.ProductID' autofocus [(ngModel)]="Product.ProductID" />
-                <input type="text" class="form-control" required name='Product.ProductName' [(ngModel)]="Product.ProductName" />
+
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.ProductName.errors }">
+                <label class="control-label" for="ProductName">Product Name</label>
+                <input type="text" class="form-control" formControlName="ProductName" />
+                <div *ngIf="submitted && f.ProductName.errors" class="help-block">
+                    <div *ngIf="f.ProductName.errors.required">Product Name is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="SupplierID">SupplierID</label>
-                <input type="text" class="form-control" required name='Product.SupplierID' [(ngModel)]="Product.SupplierID" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.SupplierID.errors }">
+                <label class="control-label" for="SupplierID">SupplierID</label>
+                <input type="text" class="form-control" formControlName='SupplierID' />
+                <div *ngIf="submitted && f.SupplierID.errors" class="help-block">
+                    <div *ngIf="f.SupplierID.errors.required">Supplier ID is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="CategoryID">CategoryID</label>
-                <input type="text" class="form-control" required name='Product.CategoryID' [(ngModel)]="Product.CategoryID" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.CategoryID.errors }">
+                <label class="control-label" for="CategoryID">CategoryID</label>
+                <input type="text" class="form-control" formControlName='CategoryID' />
+                <div *ngIf="submitted && f.CategoryID.errors" class="help-block">
+                    <div *ngIf="f.CategoryID.errors.required">Category ID is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="QuantityPerUnit">QuantityPerUnit</label>
-                <input type="text" class="form-control" required name='Product.QuantityPerUnit' [(ngModel)]="Product.QuantityPerUnit" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.QuantityPerUnit.errors }">
+                <label class="control-label" for="QuantityPerUnit">QuantityPerUnit</label>
+                <input type="text" class="form-control" formControlName='QuantityPerUnit' />
+                <div *ngIf="submitted && f.QuantityPerUnit.errors" class="help-block">
+                    <div *ngIf="f.QuantityPerUnit.errors.required">QuantityPerUnit is required</div>
+                </div>
             </div>
 
         </div>
         <div class='col-lg-6'>
 
-            <div class="form-group">
-                <label for="UnitPrice">UnitPrice</label>
-                <input type="number" class="form-control" required name='Product.UnitPrice' [(ngModel)]="Product.UnitPrice" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.UnitPrice.errors }">
+                <label class="control-label" for="UnitPrice">UnitPrice</label>
+                <input type="number" class="form-control" formControlName='UnitPrice' />
+                <div *ngIf="submitted && f.UnitPrice.errors" class="help-block">
+                    <div *ngIf="f.UnitPrice.errors.required">UnitPrice is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="UnitsInStock">UnitsInStock</label>
-                <input type="number" class="form-control" required name='Product.UnitsInStock' [(ngModel)]="Product.UnitsInStock" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.QuantityPerUnit.errors }">
+                <label class="control-label" for="UnitsInStock">UnitsInStock</label>
+                <input type="number" class="form-control" formControlName='UnitsInStock' />
+                <div *ngIf="submitted && f.UnitsInStock.errors" class="help-block">
+                    <div *ngIf="f.UnitsInStock.errors.required">UnitsInStock is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="ReorderLevel">ReorderLevel</label>
-                <input type="number" class="form-control" required name='Product.ReorderLevel' [(ngModel)]="Product.ReorderLevel" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.ReorderLevel.errors }">
+                <label class="control-label" for="ReorderLevel">ReorderLevel</label>
+                <input type="number" class="form-control" formControlName='ReorderLevel' />
+                <div *ngIf="submitted && f.ReorderLevel.errors" class="help-block">
+                    <div *ngIf="f.ReorderLevel.errors.required">ReorderLevel is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="UnitsOnOrder">UnitsOnOrder</label>
-                <input type="number" class="form-control" required name='Product.UnitsOnOrder' [(ngModel)]="Product.UnitsOnOrder" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.UnitsOnOrder.errors }">
+                <label class="control-label" for="UnitsOnOrder">UnitsOnOrder</label>
+                <input type="number" class="form-control" formControlName='UnitsOnOrder' />
+                <div *ngIf="submitted && f.UnitsOnOrder.errors" class="help-block">
+                    <div *ngIf="f.UnitsOnOrder.errors.required">UnitsOnOrder is required</div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="UnitsInStock">Discontinued</label> &nbsp;
-                <input type="checkbox" required name='Product.Discontinued' [(ngModel)]="Product.Discontinued" />
+            <div class="form-group" [ngClass]="{ 'has-error': submitted && f.Discontinued.errors }">
+                <label class="control-label" for="UnitsInStock">Discontinued</label> &nbsp;
+                <input type="checkbox" formControlName='Discontinued' />
+                <div *ngIf="submitted && f.Discontinued.errors" class="help-block">
+                    <div *ngIf="f.Discontinued.errors.required">Discontinued is required</div>
+                </div>
             </div>
 
 
@@ -59,7 +85,7 @@
 
 
     <div class="form-group">
-        <button type="submit" [disabled]="!editProduct.form.valid" class="btn btn-success"><i class="fa fa-save"></i>
+        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i>
             Save</button> &nbsp;
         <a [routerLink]="[ '/home/requests/products']" class="btn btn-default"><i class="fa fa-angle-double-left"></i>
             Back</a>
