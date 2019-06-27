@@ -119,6 +119,7 @@ export class RoleMenuUserComponent implements OnInit {
         this.router.navigate(['login']);
       }
       else {
+        debugger
         this.iSec_RoleMenu_Main.roleMenu = res.roleMenu;
         this.iSec_RoleMenu_Main.guid = res.guid;
         this.spinner.hide();

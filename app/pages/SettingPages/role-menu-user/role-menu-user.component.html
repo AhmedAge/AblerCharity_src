@@ -12,8 +12,7 @@
         <div class='col-lg-6'>
             <div class="form-group">
                 <label for="User.userId">Users</label>
-                <select [ngModel]="User.userId" name='User.userId' class="form-control"
-                    (ngModelChange)="onChange($event)">
+                <select [ngModel]="User.userId" name='User.userId' class="form-control" (ngModelChange)="onChange($event)">
                     <option *ngFor="let item of Users" [value]="item.userId">
                         {{item.FullName}}
                     </option>
@@ -54,6 +53,9 @@
                                         Menu Name Arabic
                                     </th>
                                     <th>
+                                        Select Parent Page to startup
+                                    </th>
+                                    <th>
                                         Select Start Page
                                     </th>
                                 </tr>
@@ -72,10 +74,11 @@
                                     </td>
                                     <td style="font-size: 16px;"> {{item.menuTitleEn}} </td>
                                     <td style="font-size: 16px;"> {{item.menuTitleAr}} </td>
+                                    <td style="font-size: 16px;"> {{item.parentmenuId==null ? 'Parent':''}} </td>
                                     <td>
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" class="ace" name="roleMenuStartPage"
+                                                <input type="radio" class="ace" name="roleMenuStartPage"  [disabled]='item.parentmenuId==null ? false:true'
                                                     [value]="item.startupPage_menuId"
                                                     [checked]="item.startupPage_menuId"
                                                     (change)="choose(item.menuId)" />
@@ -89,8 +92,7 @@
 
                         <hr>
                         <div class='row'>
-                            <input type="submit" class="btn btn-info  tooltip-info pull-right"
-                                style="margin-right: 15px" value="Save">
+                            <input type="submit" class="btn btn-info  tooltip-info pull-right" style="margin-right: 15px" value="Save">
                         </div>
                     </ng-container>
                 </div>
