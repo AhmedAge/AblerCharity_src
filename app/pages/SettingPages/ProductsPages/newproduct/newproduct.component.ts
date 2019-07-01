@@ -90,16 +90,16 @@ export class NewproductComponent implements OnInit {
     this.Product.UnitsOnOrder = this.registerForm.controls.UnitsOnOrder.value;
     this.Product.ReorderLevel = this.registerForm.controls.ReorderLevel.value;
     this.Product.Discontinued = this.registerForm.controls.Discontinued.value;
- 
-    
+
+
     console.log(this.registerForm.value);
-  
+
     if (this.registerForm.valid) {
       this.spinner.show();
 
 
       this.dataService.SaveNewProduct(this.Product).subscribe(res => {
-debugger
+        
         if (res == 1) {
           if (this.authService.loggedIn() === true) {
 

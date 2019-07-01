@@ -4,17 +4,32 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataService } from '../Data/data.service';
 import { tap } from 'rxjs/operators';
-import { MenusInfo } from '../Interfaces/MenusInfo';
+import { Subject, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+
+  private _canActivate: boolean = false;
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    return this.loggedIn();
+    var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token')).set('email', localStorage.getItem('email'));
+
+    let p = {
+      email: localStorage.getItem("email").split('@')[0],
+      url: state.url
+    };
+    return this.httpClient.post<boolean>(this.dataService.url + 'HaveAccess', p,
+      { headers: headers }).pipe(map(response => {
+        debugger
+        return response;
+      }));
+
   }
 
   constructor(private httpClient: HttpClient, private dataService: DataService) { }
@@ -49,10 +64,9 @@ export class AuthGuard implements CanActivate {
     return localStorage.getItem('access_token') !== null;
   }
 
-
   DrawSideMenu() {
     var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token')).set('email', localStorage.getItem('email'));
-    
+
     return this.httpClient.get(this.dataService.url + 'DrawMenu/GetString/' + localStorage.getItem("email").split('@')[0],
       { headers: headers }
     );

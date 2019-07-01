@@ -14,6 +14,7 @@ import { UserslstComponent } from './pages/SettingPages/Users/userslst/userslst.
 import { RoleMenusComponent } from './pages/SettingPages/role-menus/role-menus.component';
 import { RoleMenuUserComponent } from './pages/SettingPages/role-menu-user/role-menu-user.component';
 import { MakeRequestComponent } from './pages/RequetPages/make-request/make-request.component';
+import { AuthGuard } from './Auth/auth.guard';
 
 const routes: Routes = [
     {
@@ -35,7 +36,7 @@ const routes: Routes = [
                 path: 'requests/products', component: ProductsComponent//,    canActivate: [AuthGuard]
             },
             {
-                path: 'requests/products/newproduct', component: NewproductComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products/newproduct', component: NewproductComponent, canActivate: [AuthGuard]
             },
             {
                 path: 'requests/products/:id', component: EditproductComponent//,    canActivate: [AuthGuard]
@@ -44,7 +45,7 @@ const routes: Routes = [
                 path: 'settings/users', component: UserslstComponent
             },
             {
-                path: 'settings/users/newuser', component: NewuserComponent//,    canActivate: [AuthGuard]
+                path: 'settings/users/newuser', component: NewuserComponent, canActivate: [AuthGuard]
             },
             {
                 path: 'settings/users/:id', component: EditusersComponent

@@ -77,6 +77,8 @@ export class NewuserComponent implements OnInit {
       this.dataService.GetRoles().subscribe((res: ISec_Roles[]) => {
        
         if (res === null) {
+          alert('You are not Authorized to Access this Page');
+         
           this.spinner.hide();
           this.authService.logout();
           this.router.navigate(['login']);
