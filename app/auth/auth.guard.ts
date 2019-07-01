@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate,Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataService } from '../Data/data.service';
-import { tap } from 'rxjs/operators';
-import { Subject, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators'; 
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -26,13 +25,22 @@ export class AuthGuard implements CanActivate {
     };
     return this.httpClient.post<boolean>(this.dataService.url + 'HaveAccess', p,
       { headers: headers }).pipe(map(response => {
-        debugger
-        return response;
+        if(response == false)
+        { 
+          alert("You are not Authorized to Access this Page");
+            //  this.router.navigate(['/home']);
+        }
+          return response;
+          // else{
+          //   this.logout();
+          //   this.router.navigate(['/login']);
+          //   return false;
+          // }
       }));
 
   }
 
-  constructor(private httpClient: HttpClient, private dataService: DataService) { }
+  constructor(private httpClient: HttpClient, private dataService: DataService,private router:Router) { }
 
 
   Login(email: string, password: string) {

@@ -17,6 +17,7 @@ import { MakeRequestComponent } from './pages/RequetPages/make-request/make-requ
 import { AuthGuard } from './Auth/auth.guard';
 
 const routes: Routes = [
+    
     {
         path: 'home', component: HomeComponent,
         children: [
@@ -39,7 +40,7 @@ const routes: Routes = [
                 path: 'requests/products/newproduct', component: NewproductComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'requests/products/:id', component: EditproductComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products/editproduct/:id', component: EditproductComponent,    canActivate: [AuthGuard]
             },
             {
                 path: 'settings/users', component: UserslstComponent
@@ -48,7 +49,7 @@ const routes: Routes = [
                 path: 'settings/users/newuser', component: NewuserComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'settings/users/:id', component: EditusersComponent
+                path: 'settings/users/edituser/:id', component: EditusersComponent,    canActivate: [AuthGuard]
             },
             {
                 path: 'settings/rolemenu', component: RoleMenusComponent//,    canActivate: [AuthGuard]
