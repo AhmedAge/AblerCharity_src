@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
     this.emitEventToChild();
   }
 
-  private eventsSubject: Subject<string> = new Subject<string>();
+  public eventsSubject: Subject<string> = new Subject<string>();
 
   emitEventToChild() {
 
