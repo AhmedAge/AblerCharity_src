@@ -73,6 +73,12 @@ export class AuthGuard implements CanActivate {
   }
 
   DrawSideMenu() {
+    if(this.loggedIn() == false)
+    {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     var headers = new HttpHeaders().set('access_token', localStorage.getItem('access_token')).set('email', localStorage.getItem('email'));
 
     return this.httpClient.get(this.dataService.url + 'DrawMenu/GetString/' + localStorage.getItem("email").split('@')[0],

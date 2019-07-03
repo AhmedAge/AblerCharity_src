@@ -44,6 +44,12 @@ export class NewproductComponent implements OnInit {
 
   ngOnInit() {
 
+    if(this.authService.loggedIn() == false)
+    {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.registerForm = this.formBuilder.group({
       ProductName: ['', Validators.required],
       SupplierID: ['', Validators.required],
@@ -99,7 +105,7 @@ export class NewproductComponent implements OnInit {
 
 
       this.dataService.SaveNewProduct(this.Product).subscribe(res => {
-        
+
         if (res == 1) {
           if (this.authService.loggedIn() === true) {
 

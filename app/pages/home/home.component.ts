@@ -17,6 +17,12 @@ export class HomeComponent implements OnInit {
     private spinner: NgxSpinnerService, private dataService: DataService) { }
 
   ngOnInit() {
+    if(this.authGuard.loggedIn() == false)
+    {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     if (this.authGuard.loggedIn() !== true) {
       this.router.navigate(['login']);
     }

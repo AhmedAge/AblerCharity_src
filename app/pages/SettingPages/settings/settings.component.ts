@@ -22,6 +22,12 @@ export class SettingsComponent implements OnInit {
   menuInfo: MenusInfo;
   menuInfoAll: MenusInfo[];
   ngOnInit() {
+    if(this.authGuard.loggedIn() == false)
+    {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.spinner.hide();
     if (localStorage.getItem("MenusInfo") != undefined) {
       

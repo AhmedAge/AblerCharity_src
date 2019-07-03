@@ -23,6 +23,12 @@ export class RequestsComponent implements OnInit {
   menuInfoAll: MenusInfo[];
 
   ngOnInit() {
+    if(this.authGuard.loggedIn() == false)
+    {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     if (localStorage.getItem("MenusInfo") != undefined) {
       this.menuInfoAll = JSON.parse(localStorage.getItem("MenusInfo"));
 

@@ -16,9 +16,17 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private data: DataService, private spinner: NgxSpinnerService,
     
-    private authService: AuthGuard, private dataService: DataService, private router: Router) { }
+    private authService: AuthGuard, private dataService: DataService, private router: Router) {
+     
+     }
 
   ngOnInit() {
+    if(this.authService.loggedIn() == false)
+    {
+      this.router.navigate(['/login']);
+      return;
+    }
+    
     this.spinner.show();
     this.data.GetCategories().subscribe((res: ICategory[]) => {
 

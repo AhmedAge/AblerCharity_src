@@ -24,7 +24,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
 
-
+        if(this.authService.loggedIn() == false)
+        {
+          this.router.navigate(['/login']);
+          return;
+        }
+        
         if (!this.authService.loggedIn()) {
             this.router.navigate(['home']);
         } else {
