@@ -22,6 +22,9 @@ import { RoleMenusComponent } from './pages/SettingPages/role-menus/role-menus.c
 import { RoleMenuUserComponent } from './pages/SettingPages/role-menu-user/role-menu-user.component';
 import { BreadcrumbComponent } from './pages/breadcrumb/breadcrumb.component';
 import { MakeRequestComponent } from './pages/RequetPages/make-request/make-request.component';
+import { MailBoxComponent } from './pages/MailBoxPages/mail-box/mail-box.component';
+import { InboxComponent } from './pages/MailBoxPages/inbox/inbox.component';
+import { MailSendComponent } from './pages/MailBoxPages/MailBox/mail-send/mail-send.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,7 @@ import { MakeRequestComponent } from './pages/RequetPages/make-request/make-requ
     EditproductComponent,
     NewproductComponent,
     NewuserComponent,
-    EditusersComponent, UserslstComponent, RoleMenusComponent, RoleMenuUserComponent, BreadcrumbComponent, MakeRequestComponent
+    EditusersComponent, UserslstComponent, RoleMenusComponent, RoleMenuUserComponent, BreadcrumbComponent, MakeRequestComponent, MailBoxComponent, InboxComponent, MailSendComponent
   ],
   imports: [
     BrowserModule,

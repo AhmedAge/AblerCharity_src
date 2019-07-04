@@ -11,7 +11,8 @@ import { ISec_RoleMenu_Main } from '../Interfaces/ISec_RoleMenu.1';
 export class DataService {
 
 
-    url = 'http://localhost:4222/api/';
+    url =   'http://188.227.164.171/alberbackend/api/';
+//'http://localhost:4222/api/';
 
     constructor(private httpClient: HttpClient) { }
 

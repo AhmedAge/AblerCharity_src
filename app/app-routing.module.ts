@@ -15,6 +15,9 @@ import { RoleMenusComponent } from './pages/SettingPages/role-menus/role-menus.c
 import { RoleMenuUserComponent } from './pages/SettingPages/role-menu-user/role-menu-user.component';
 import { MakeRequestComponent } from './pages/RequetPages/make-request/make-request.component';
 import { AuthGuard } from './Auth/auth.guard';
+import { MailBoxComponent } from './pages/MailBoxPages/mail-box/mail-box.component';
+import { InboxComponent } from './pages/MailBoxPages/inbox/inbox.component';
+import { MailSendComponent } from './pages/MailBoxPages/MailBox/mail-send/mail-send.component';
 
 const routes: Routes = [
     
@@ -52,11 +55,20 @@ const routes: Routes = [
                 path: 'settings/users/edituser/:id', component: EditusersComponent,    canActivate: [AuthGuard]
             },
             {
-                path: 'settings/rolemenu', component: RoleMenusComponent//,    canActivate: [AuthGuard]
+                path: 'settings/rolemenu', component: RoleMenusComponent,    canActivate: [AuthGuard]
             },
             {
-                path: 'settings/rolemenuuser', component: RoleMenuUserComponent//,    canActivate: [AuthGuard]
-            }
+                path: 'settings/rolemenuuser', component: RoleMenuUserComponent,    canActivate: [AuthGuard]
+            },
+            {
+                path: 'mailbox', component: MailBoxComponent//,    canActivate: [AuthGuard]
+                
+            },
+            {
+                path: 'mailbox/inbox', component: InboxComponent
+            }, {
+                path: 'mailbox/mailsend', component: MailSendComponent
+            },
         ]
     },
     { path: 'login', component: LoginComponent },
