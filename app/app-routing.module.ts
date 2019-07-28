@@ -20,54 +20,55 @@ import { InboxComponent } from './pages/MailBoxPages/inbox/inbox.component';
 import { MailSendComponent } from './pages/MailBoxPages/MailBox/mail-send/mail-send.component';
 
 const routes: Routes = [
-    
+
     {
         path: 'home', component: HomeComponent,
         children: [
             {
-                path: 'settings', component: SettingsComponent//,    canActivate: [AuthGuard]
+                path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'requests', component: RequestsComponent//,    canActivate: [AuthGuard]
+                path: 'requests', component: RequestsComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'requests/makerequest', component: MakeRequestComponent//,    canActivate: [AuthGuard]
+                path: 'requests/makerequest', component: MakeRequestComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'requests/categories', component: CategoriesComponent//,    canActivate: [AuthGuard]
+                path: 'requests/categories', component: CategoriesComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'requests/products', component: ProductsComponent//,    canActivate: [AuthGuard]
+                path: 'requests/products', component: ProductsComponent, canActivate: [AuthGuard]
             },
             {
                 path: 'requests/products/newproduct', component: NewproductComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'requests/products/editproduct/:id', component: EditproductComponent,    canActivate: [AuthGuard]
+                path: 'requests/products/editproduct/:id', component: EditproductComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'settings/users', component: UserslstComponent
+                path: 'settings/users', component: UserslstComponent, canActivate: [AuthGuard]
             },
             {
                 path: 'settings/users/newuser', component: NewuserComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'settings/users/edituser/:id', component: EditusersComponent,    canActivate: [AuthGuard]
+                path: 'settings/users/edituser/:id', component: EditusersComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'settings/rolemenu', component: RoleMenusComponent,    canActivate: [AuthGuard]
+                path: 'settings/rolemenu', component: RoleMenusComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'settings/rolemenuuser', component: RoleMenuUserComponent,    canActivate: [AuthGuard]
+                path: 'settings/rolemenuuser', component: RoleMenuUserComponent, canActivate: [AuthGuard]
             },
             {
-                path: 'mailbox', component: MailBoxComponent//,    canActivate: [AuthGuard]
-                
+                path: 'mailbox', component: MailBoxComponent, canActivate: [AuthGuard]
+
             },
             {
-                path: 'mailbox/inbox', component: InboxComponent
-            }, {
-                path: 'mailbox/mailsend', component: MailSendComponent
+                path: 'mailbox/inbox', component: InboxComponent, canActivate: [AuthGuard]
+            },
+            {
+                path: 'mailbox/mailsend', component: MailSendComponent, canActivate: [AuthGuard]
             },
         ]
     },
